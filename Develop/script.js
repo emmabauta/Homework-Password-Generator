@@ -103,6 +103,10 @@ function getPasswordOptions(){
   };
   while(options.length < 8 || options.length > 128){
     options.length = parseInt(prompt("How many characters would you like your password to be?"));
+
+    if (options.length < 8 || options.length > 128){
+      alert ("Your password must be 8 - 128 characters long.")
+    }
   } 
   //conditional statement to ensure user input 
   //Check password length 

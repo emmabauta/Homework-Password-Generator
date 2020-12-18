@@ -142,16 +142,23 @@ function generatePassword(){
   if(options.numbers){
      passwordOptions = passwordOptions.concat(numericCharacters)
   }
-  for(i=0; i<options.length; i++){
-    password += passwordOptions[getRandomInt(passwordOptions.length)]
+   //if no requirements are chosen, password is null
+   if (options.specialCharacters == false && options.lowerCase == false && options.upperCase == false && options.numbers == false){ 
+    alert("Please choose requirements or no password for you!");
+      
+  } 
+    else{
+      for(i=0; i<options.length; i++){
+        password += passwordOptions[getRandomInt(passwordOptions.length)]
+      }
   }
+  
   return password; 
 }
-
+ //randomize results
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
